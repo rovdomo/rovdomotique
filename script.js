@@ -2,8 +2,8 @@ let userRole = "viewer";
 
 // 🔐 USERS
 const users = {
-  "rov": { password: "1234", role: "admin" },
-  "guest": { password: "0000", role: "viewer" }
+  "rov": { password: "3040", role: "admin" },
+  "guest": { password: "5402", role: "viewer" }
 };
 
 // 🔥 attendre chargement
