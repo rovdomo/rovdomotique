@@ -1,9 +1,14 @@
 let userRole = "viewer";
 
-// 🔐 USERS (temporaire)
+// 🔐 USERS
 const users = {
-  "rov": { password: "3040", role: "admin" },
-  "guest": { password: "5611", role: "viewer" }
+  "rov": { password: "1234", role: "admin" },
+  "guest": { password: "0000", role: "viewer" }
+};
+
+// 🔥 attendre chargement
+window.onload = () => {
+  document.getElementById("dashboard").style.display = "none";
 };
 
 function login() {
@@ -20,7 +25,7 @@ function login() {
     document.getElementById("role").innerText =
       (userRole === "admin") ? "Mode Admin 🔓" : "Mode Lecture 👀";
 
-    // 🔒 Bloquer si viewer
+    // 🔒 bloque viewer
     if (userRole === "viewer") {
       document.querySelectorAll("button").forEach(btn => {
         btn.disabled = true;
@@ -39,4 +44,10 @@ function openGate() {
 
 function closeGate() {
   document.getElementById("gateStatus").innerText = "Fermé";
+}
+
+// 💡 LUMIERE
+function toggleLight() {
+  let el = document.getElementById("lightStatus");
+  el.innerText = (el.innerText === "OFF") ? "ON" : "OFF";
 }
