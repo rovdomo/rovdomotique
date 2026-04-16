@@ -1,43 +1,18 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Rov Domotique</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<div id="loginBox">
+  <h2>🔐 Connexion</h2>
+  <input type="text" id="username" placeholder="Utilisateur">
+  <input type="password" id="password" placeholder="Mot de passe">
+  <button onclick="login()">Se connecter</button>
+</div>
 
-<body>
+<div id="dashboard" style="display:none;">
+  <h1>🔥 Rov Domotique</h1>
+  <p id="role"></p>
 
-  <header>
-    <h1>🔥 Rov Domotique</h1>
-    <p>Bienvenue sur mon système smart home</p>
-  </header>
-
-  <main>
-
-    <div class="card">
-      <h2>🚪 Portail</h2>
-      <p id="gateStatus">Fermé</p>
-
-      <button onclick="openGate()">Ouvrir</button>
-      <button onclick="closeGate()">Fermer</button>
-    </div>
-
-    <div class="card">
-      <h2>💡 Lumière</h2>
-      <p id="lightStatus">OFF</p>
-
-      <button onclick="toggleLight()">Toggle</button>
-    </div>
-
-    <div class="card">
-      <h2>🔥 Gaz</h2>
-      <p id="gazStatus">SAFE</p>
-    </div>
-
-  </main>
-
-  <script src="script.js"></script>
-
-</body>
-</html>
+  <div class="card">
+    <h2>🚪 Portail</h2>
+    <p id="gateStatus">Fermé</p>
+    <button onclick="openGate()">Ouvrir</button>
+    <button onclick="closeGate()">Fermer</button>
+  </div>
+</div>
