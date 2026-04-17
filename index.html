@@ -4,6 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Rov Domotique</title>
+  <!-- 📊 Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- 🎨 STYLE -->
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #22c55e;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+  </style>
 </head>
 
 <body>
@@ -15,16 +47,32 @@
   <button onclick="login()">Se connecter</button>
 </div>
 
-<div id="dashboard" style="display:none;">
-  <h1>🔥 Rov Domotique</h1>
+<div id="dashboard" style="display:none; padding:20px;">
+
+  <h1>🔥 Rov Domotique Dashboard</h1>
   <p id="role"></p>
 
   <div class="card">
-    <h2>🚪 Portail</h2>
-    <p id="gateStatus">Fermé</p>
-    <button onclick="openGate()">Ouvrir</button>
-    <button onclick="closeGate()">Fermer</button>
+    <h2>📡 État du système</h2>
+    <p>💡 Lumière: <span id="lightStatus">OFF</span></p>
+    <p>🚪 Portail: <span id="gateStatus">Fermé</span></p>
+    <p>🔥 Gaz: <span id="gasStatus">OK</span></p>
   </div>
+
+  <div class="card">
+    <h2>🎮 Contrôle</h2>
+    <button onclick="lightOn()">💡 ON</button>
+    <button onclick="lightOff()">💡 OFF</button>
+
+    <button onclick="openGate()">🚪 Ouvrir</button>
+    <button onclick="closeGate()">🚪 Fermer</button>
+  </div>
+
+  <div class="card">
+    <h2>📊 Consommation</h2>
+    <canvas id="chart"></canvas>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
