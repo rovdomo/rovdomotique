@@ -50,4 +50,31 @@ function closeGate() {
 function toggleLight() {
   let el = document.getElementById("lightStatus");
   el.innerText = (el.innerText === "OFF") ? "ON" : "OFF";
+
+// GRAPH
+const ctx = document.getElementById('chart')?.getContext('2d');
+
+if (ctx) {
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'],
+      datasets: [{
+        label: 'Consommation (kWh)',
+        data: [2, 3, 1.5, 4, 2.5]
+      }]
+    }
+  });
+}
+
+// LUMIERE
+async function lightOn() {
+  await fetch("http://localhost:3000/light/on", { method: "POST" });
+  document.getElementById("lightStatus").innerText = "ON";
+}
+
+async function lightOff() {
+  await fetch("http://localhost:3000/light/off", { method: "POST" });
+  document.getElementById("lightStatus").innerText = "OFF";
+}
 }
